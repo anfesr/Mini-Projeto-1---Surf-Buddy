@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surf Buddy</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+
+
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <div class="logo">surf buddy</div>
+
+                <ul class="nav-links" id="nav-links">
+                    <li><a href="#heroVideo" class="nav-link">Home</a></li>
+                    <li><a href="#conditions-section" class="nav-link">Surf Spots</a></li>
+                    <li><a href="#forecast-section" class="nav-link">Surf Data</a></li>
+                </ul>
+
+                <div class="theme-toggle">
+                    <button id="theme-btn">🌙 Dark Mode</button>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- banner / vídeo de surf youtube -->
+    <section class="hero-video">
+        <video autoplay muted loop playsinline id="heroVideo">
+            <source src="media/Kelly Slater.mp4" type="video/mp4">
+        </video>
+    </section>
+
+
+   <!-- MODAL DE DETALHES -->
+    <div class="modal-overlay" id="modal-overlay">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button class="close-modal" onclick="closeModal()">×</button>
+                <h2 id="modal-title">Spot</h2>
+                <p id="modal-subtitle">Detailed Information</p>
+            </div>
+            <div class="modal-body" id="modal-body">
+                <!-- Dynamic content -->
+            </div>
+        </div>
+    </div> 
+
+    <main class="container">
+        <!-- filtro -->
+        <div class="region-section">
+            <h1>Choose Your Region</h1>
+            <div class="select-wrapper">
+                <select id="regionSelect" onchange="filterByRegion()">
+                    <option value="all">All Regions</option>
+                    <option value="north">North</option>
+                    <option value="center">Center</option>
+                    <option value="south">South</option>
+                </select>
+            </div>
+        </div>
+
+        <!-- Current Surf Conditions -->
+        <div id="conditions-section" class="conditions-section">
+            <h2 class="section-title">Current Surf Conditions</h2>
+            <div class="surf-conditions-grid" id="surfGrid"></div>
+        </div>
+
+        <!-- Live Webcams -->
+        <section id="webcams-section">
+            <h2 class="section-title">Live Webcams</h2>
+            <div class="webcams-grid" id="webcams-container">
+                <div class="loading">Loading webcams...</div>
+            </div>
+        </section>
+
+        <!-- Previsões Semanais -->
+        <section id="forecast-section">
+            <h2 class="section-title">Weekly Forecasts</h2>
+            <div class="forecast-controls">
+                <button id="prev-week">← Previous Week</button>
+                <span id="week-display">Current Week</span>
+                <button id="next-week">Next Week →</button>
+            </div>
+            <div class="forecast-container" id="forecast-container">
+                <div class="loading">Loading forecasts...</div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>surf buddy</h3>
+                </div>
+                <div class="footer-section">
+                    <h4>Links</h4>
+                    <ul>
+                        <li><a href="#heroVideo" class="nav-link">Home</a></li>
+                        <li><a href="#conditions-section" class="nav-link">Surf Spots</a></li>
+                        <li><a href="#forecast-section" class="nav-link">Surf Data</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Contacts</h4>
+                    <ul>
+                        <li>info@surfbuddy.pt</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Surf Buddy. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
